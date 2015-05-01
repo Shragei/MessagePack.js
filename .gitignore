@@ -1,0 +1,4 @@
+MessagePackjs.komodoproject
+.komodotools
+node_modules/*
+bundle/*

@@ -1,0 +1,27 @@
+{
+  "email":"shragei@gmail.com",
+  "version":"0.0.1",
+  "description":"MessagePack library for the browser.",
+  "dependencies":{
+    "browserify":">=9.0.0",
+    "minifyify":">=6.4.0"
+  },
+  "devDependencies":{
+    "mocha":">=2.2.4",
+    "chai":">=2.2.0",
+    "mocha-phantomjs":">=3.5.3",
+    "rimraf":">=2.3.2"
+  },
+  "testling":{
+    "harness":"mocha-bdd",
+    "files":"Tests/*.js"
+  },
+  "scripts":{
+    "prebuild":"npm run clean -s",
+    "install":"./node_modules/.bin/browserify -d index.js -o bundle/MessagePack.js -p [minifyify --compressPath . --map MesagePack.js.map --output bundle/MessagePack.js.map]",
+    "install:debug":"./node_modules/.bin/browserify -d index.js -o bundle/MessagePack.js",
+    "test:testling":"./node_modules/.bin/mocha ./Tests/*.js --ui bdd",
+    "test:phantom":"./node_modules/.bin/mocha-phantomjs ./Tests/web.html",
+    "preisntall":"./node_modules/.bin/rimraf bundle"
+  }
+}
