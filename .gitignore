@@ -2,3 +2,5 @@ MessagePackjs.komodoproject
 .komodotools
 node_modules/*
 bundle/*
+npm-debug.log
+lib/npm-debug.log
