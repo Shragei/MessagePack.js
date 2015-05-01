@@ -193,7 +193,8 @@
       var known=new Uint8Array([0xD6,0x02,0x80,0x61,0x2E,0x63]);
       var ret=MessagePack.Unpack(known);
       expect(ret).to.be.an.instanceof(RegExp);
-      expect(ret).to.have.property('flags').that.equals('g');
+      var flags=ret.toString().match(/[gimuy]*$/)[0];
+      expect(flags).to.equal('g');
       expect(ret).to.have.property('source').that.equals('a.c');
     });
     it("correctly unpacks 8 byte fixed (Date)",function(){
@@ -208,7 +209,8 @@
                                 0x20,0x5c,0x74,0x5d,0x2b,0x24]);
       var ret=MessagePack.Unpack(known);
       expect(ret).to.be.an.instanceof(RegExp);
-      expect(ret).to.have.property('flags').that.equals('g');
+      var flags=ret.toString().match(/[gimuy]*$/)[0];
+      expect(flags).to.equal('g');
       expect(ret).to.have.property('source').that.equals('^[ \\t]+|[ \\t]+$');
     });
   });
@@ -222,7 +224,8 @@
                                 0x7b,0x31,0x2c,0x33,0x7d,0x5c,0x62]);
       var ret=MessagePack.Unpack(known);
       expect(ret).to.be.an.instanceof(RegExp);
-      expect(ret).to.have.property('flags').that.equals('g');
+      var flags=ret.toString().match(/[gimuy]*$/)[0];
+      expect(flags).to.equal('g');
       expect(ret).to.have.property('source').that.equals('\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b');
     });
     it("correctly unpacks 16 bit length ext",function(){
@@ -235,7 +238,8 @@
                                 0x62]);
       var ret=MessagePack.Unpack(known);
       expect(ret).to.be.an.instanceof(RegExp);
-      expect(ret).to.have.property('flags').that.equals('g');
+      var flags=ret.toString().match(/[gimuy]*$/)[0];
+      expect(flags).to.equal('g');
       expect(ret).to.have.property('source').that.equals('\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b');
     });
     it("correctly unpacks 32 bit length ext",function(){
@@ -248,7 +252,8 @@
                                 0x7d,0x5c,0x62]);
       var ret=MessagePack.Unpack(known);
       expect(ret).to.be.an.instanceof(RegExp);
-      expect(ret).to.have.property('flags').that.equals('g');
+      var flags=ret.toString().match(/[gimuy]*$/)[0];
+      expect(flags).to.equal('g');
       expect(ret).to.have.property('source').that.equals('\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b');
     });
   });
